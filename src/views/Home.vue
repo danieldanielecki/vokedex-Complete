@@ -2,12 +2,18 @@
   <b-container class="p-3 bg-secondary home-view rounded">
     <b-row>
       <div id="blue-ball" class="bg-primary rounded-circle m-4" v-if="blue" />
-      <div class="tiny-balls bg-danger rounded-circle mr-1 mt-4" v-else-if="danger" />
-      <div class="tiny-balls bg-warning rounded-circle mr-1 mt-4" v-else-if="warning" />
+      <div
+        class="tiny-balls bg-danger rounded-circle mr-1 mt-4"
+        v-else-if="danger"
+      />
+      <div
+        class="tiny-balls bg-warning rounded-circle mr-1 mt-4"
+        v-else-if="warning"
+      />
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" v-else />
       <h1 v-show="blue">Bla bla bla...</h1>
       <h1 v-bind:id="boundId">{{ title }}</h1>
-       <p>Hello {{name }}</p>
+      <p>Hello {{ name }}</p>
       <a :href="boundUrl">Click</a>
     </b-row>
     <b-row>
@@ -18,6 +24,10 @@
       </ul>
     </b-row>
     <b-row>
+      <ul v-for="pokemon in pokemons" :key="pokemon.index">
+        <h3>{{ pokemon.name }}</h3>
+        <p>{{ pokemon.type }}</p>
+      </ul>
     </b-row>
   </b-container>
 </template>
@@ -33,8 +43,13 @@ export default {
       danger: false,
       details: ["awesome", "fire", "dragon"],
       name: "Daniel",
+      pokemons: [
+        { name: "charmander", type: "fire" },
+        { name: "squirtle", type: "water" },
+        { name: "bulbasaur", type: "grass" },
+      ],
       title: "Title",
-      warning: false
+      warning: false,
     };
   },
 };
