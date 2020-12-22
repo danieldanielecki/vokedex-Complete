@@ -5,6 +5,9 @@
       <div class="tiny-balls bg-danger rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-warning rounded-circle mr-1 mt-4" />
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" />
+      <h1 v-bind:id="boundId">{{ title }}</h1>
+       <p>Hello {{name }}</p>
+      <a :href="boundUrl">Click</a>
     </b-row>
     <b-row>
     </b-row>
@@ -18,6 +21,10 @@ export default {
   name: "Home",
   data() {
     return {
+      boundId: "bound-id",
+      boundUrl: "https://google.com",
+      name: "Daniel",
+      title: "Title"
     };
   },
 };
