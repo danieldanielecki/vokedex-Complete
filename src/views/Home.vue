@@ -11,6 +11,11 @@
       <a :href="boundUrl">Click</a>
     </b-row>
     <b-row>
+      <ul>
+        <li v-for="detail in details" :key="detail.index">
+          {{ detail }}
+        </li>
+      </ul>
     </b-row>
     <b-row>
     </b-row>
@@ -26,6 +31,7 @@ export default {
       boundId: "bound-id",
       boundUrl: "https://google.com",
       danger: false,
+      details: ["awesome", "fire", "dragon"],
       name: "Daniel",
       title: "Title",
       warning: false
