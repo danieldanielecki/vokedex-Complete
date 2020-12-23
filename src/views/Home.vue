@@ -31,11 +31,15 @@
     </b-row>
     <hr />
 
-    <form>
+    <form @submit="formSubmit">
       <button @click.prevent="FirstClickHandler('hellow2')" type="button">
         Prevent
       </button>
       <button @click="window.alert('test')">Button 1</button>
+      <input v-model="searchQuery" />
+      <button type="submit">Search</button>
+      <button type="submit" @click.prevent="resetForm">Reset</button>
+      <h3>Your name is {{ searchQuery }}</h3>
     </form>
   </b-container>
 </template>
@@ -56,6 +60,7 @@ export default {
         { name: "squirtle", type: "water" },
         { name: "bulbasaur", type: "grass" },
       ],
+      searchQuery: "Daniel",
       title: "Title",
       warning: false,
     };
@@ -63,6 +68,12 @@ export default {
   methods: {
     FirstClickHandler(data) {
       alert("I have been clicked " + data);
+    },
+    formSubmit() {
+      alert(`hello, your query: ${this.searchQuery}`);
+    },
+    resetForm() {
+      this.searchQuery = "";
     },
   },
 };
