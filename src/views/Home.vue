@@ -23,9 +23,12 @@
         </li>
       </ul>
     </b-row>
-    <b-row>
+    <b-row :class="{ darkTheme: isDark }">
+      <button @click="isDark = !isDark">enter darkness</button>
       <ul v-for="pokemon in pokemons" :key="pokemon.index">
-        <h3 :style="{ color: pokemon.color }">{{ pokemon.name }}</h3>
+        <h3 :style="{ color: pokemon.color }">
+          {{ pokemon.name }}
+        </h3>
         <p>{{ pokemon.type }}</p>
       </ul>
     </b-row>
@@ -35,8 +38,8 @@
       <button @click.prevent="FirstClickHandler('hellow2')" type="button">
         Prevent
       </button>
-      <button @click="window.alert('test')">Button 1</button>
-      <input v-model="searchQuery" />
+      <button>Button 1</button>
+      <input :class="{ myBackground }" v-model="searchQuery" />
       <button type="submit">Search</button>
       <button type="submit" @click.prevent="resetForm">Reset</button>
       <h3>Your name is {{ searchQuery }}</h3>
@@ -54,6 +57,7 @@ export default {
       boundUrl: "https://google.com",
       danger: false,
       details: ["awesome", "fire", "dragon"],
+      isDark: false,
       name: "Daniel",
       pokemons: [
         { color: "red", name: "charmander", type: "fire" },
@@ -94,5 +98,13 @@ export default {
 
 .home-view {
   border: 3px solid black;
+}
+
+.myBackground {
+  background-color: brown !important;
+}
+
+.darkTheme {
+  background-color: black;
 }
 </style>
