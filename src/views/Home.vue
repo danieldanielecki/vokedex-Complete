@@ -25,7 +25,7 @@
     </b-row>
     <b-row>
       <ul v-for="pokemon in pokemons" :key="pokemon.index">
-        <h3>{{ pokemon.name }}</h3>
+        <h3 :style="{ color: pokemon.color }">{{ pokemon.name }}</h3>
         <p>{{ pokemon.type }}</p>
       </ul>
     </b-row>
@@ -56,9 +56,9 @@ export default {
       details: ["awesome", "fire", "dragon"],
       name: "Daniel",
       pokemons: [
-        { name: "charmander", type: "fire" },
-        { name: "squirtle", type: "water" },
-        { name: "bulbasaur", type: "grass" },
+        { color: "red", name: "charmander", type: "fire" },
+        { color: "blue", name: "squirtle", type: "water" },
+        { color: "#f0f0f0", name: "bulbasaur", type: "grass" },
       ],
       searchQuery: "Daniel",
       title: "Title",
