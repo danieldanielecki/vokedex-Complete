@@ -29,6 +29,14 @@
         <p>{{ pokemon.type }}</p>
       </ul>
     </b-row>
+    <hr />
+
+    <form>
+      <button @click.prevent="FirstClickHandler('hellow2')" type="button">
+        Prevent
+      </button>
+      <button @click="window.alert('test')">Button 1</button>
+    </form>
   </b-container>
 </template>
 
@@ -51,6 +59,11 @@ export default {
       title: "Title",
       warning: false,
     };
+  },
+  methods: {
+    FirstClickHandler(data) {
+      alert("I have been clicked " + data);
+    },
   },
 };
 </script>
