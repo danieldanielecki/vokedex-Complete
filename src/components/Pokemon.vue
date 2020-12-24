@@ -4,6 +4,8 @@
       {{ name }}
     </h3>
     <p>{{ type }}</p>
+    <slot></slot>
+    <slot name="evolution-2"></slot>
   </ul>
 </template>
 

@@ -31,7 +31,10 @@
         :color="pokemon.color"
         :name="pokemon.name"
         :type="pokemon.type"
-      />
+      >
+        <p>evolution 1: Evolution1</p>
+        <p slot="evolution-2">evolution 2: Evolution2</p>
+      </Pokemon>
     </b-row>
     <hr />
 
