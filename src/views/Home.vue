@@ -65,9 +65,14 @@ export default {
         { color: "#f0f0f0", name: "bulbasaur", type: "grass" },
       ],
       searchQuery: "Daniel",
-      title: "Title",
+      title2: "Title2",
       warning: false,
     };
+  },
+  computed: {
+    title() {
+      return this.title2 + " " + this.searchQuery;
+    },
   },
   methods: {
     FirstClickHandler(data) {
