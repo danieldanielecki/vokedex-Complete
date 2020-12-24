@@ -13,7 +13,7 @@
       <div class="tiny-balls bg-success rounded-circle mr-1 mt-4" v-else />
       <h1 v-show="blue">Bla bla bla...</h1>
       <h1 v-bind:id="boundId">{{ title }}</h1>
-      <p>Hello {{ name }}</p>
+      <p>Hello {{ name2 }}</p>
       <a :href="boundUrl">Click</a>
     </b-row>
     <b-row>
@@ -25,12 +25,13 @@
     </b-row>
     <b-row :class="{ darkTheme: isDark }">
       <button @click="isDark = !isDark">enter darkness</button>
-      <ul v-for="pokemon in pokemons" :key="pokemon.index">
-        <h3 :style="{ color: pokemon.color }">
-          {{ pokemon.name }}
-        </h3>
-        <p>{{ pokemon.type }}</p>
-      </ul>
+      <Pokemon
+        v-for="pokemon in pokemons"
+        :key="pokemon.index"
+        :color="pokemon.color"
+        :name="pokemon.name"
+        :type="pokemon.type"
+      />
     </b-row>
     <hr />
 
@@ -48,8 +49,13 @@
 </template>
 
 <script>
+import Pokemon from "./Pokemon";
+
 export default {
   name: "Pokemons",
+  components: {
+    Pokemon,
+  },
   data() {
     return {
       blue: false,
@@ -58,7 +64,7 @@ export default {
       danger: false,
       details: ["awesome", "fire", "dragon"],
       isDark: false,
-      name: "Daniel",
+      name2: "Daniel",
       pokemons: [
         { color: "red", name: "charmander", type: "fire" },
         { color: "blue", name: "squirtle", type: "water" },
@@ -84,6 +90,11 @@ export default {
     resetForm() {
       this.searchQuery = "";
     },
+  },
+  props: {
+    color: String,
+    name: String,
+    type: String,
   },
 };
 </script>
