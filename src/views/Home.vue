@@ -24,6 +24,18 @@ export default {
     PokemonDetails,
     PokemonImage,
   },
+  created() {
+    console.log("created");
+    console.log(this.$el);
+  },
+  mounted() {
+    console.log("Mounted");
+    console.log(this.$el);
+  },
+  destroyed() {
+    console.log("destroyed");
+    console.log(this.$el);
+  },
 };
 </script>
 
