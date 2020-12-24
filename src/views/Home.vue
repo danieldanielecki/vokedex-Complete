@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Pokemons />
-    <SearchPokemon />
-    <SearchResults />
+    <SearchPokemon @new-search-query="handleQuery" />
+    <SearchResults :query="query" />
     <PokemonDetails />
     <PokemonImage />
   </div>
@@ -17,6 +17,11 @@ import PokemonImage from "./../components/PokemonImage";
 
 export default {
   name: "App",
+  data() {
+    return {
+      query: "",
+    };
+  },
   components: {
     Pokemons,
     SearchPokemon,
@@ -35,6 +40,11 @@ export default {
   destroyed() {
     console.log("destroyed");
     console.log(this.$el);
+  },
+  methods: {
+    handleQuery(data) {
+      this.query = data;
+    },
   },
 };
 </script>

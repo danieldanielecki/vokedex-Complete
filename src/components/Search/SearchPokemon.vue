@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     search() {
-      alert(`hello, your query: ${this.query}`);
+      this.$emit("new-search-query", this.query);
     },
     resetForm() {
       this.query = "";
