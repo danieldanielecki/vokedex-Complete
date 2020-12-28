@@ -6,6 +6,10 @@
     <PokemonDetails />
     <PokemonImage />
     <router-link to="about">About</router-link>
+    <h2>List of pokemons</h2>
+    <li v-for="pokemon in pokemons" :key="pokemon.name">
+      {{ pokemon.name }}
+    </li>
   </div>
 </template>
 
@@ -15,11 +19,13 @@ import SearchPokemon from "./../components/Search/SearchPokemon";
 import SearchResults from "./../components/Search/SearchResults";
 import PokemonDetails from "./../components/PokemonDetails";
 import PokemonImage from "./../components/PokemonImage";
+import { getAllPokemon } from "../services/pokeApi";
 
 export default {
   name: "App",
   data() {
     return {
+      pokemons: [],
       query: "",
     };
   },
@@ -30,9 +36,11 @@ export default {
     PokemonDetails,
     PokemonImage,
   },
-  created() {
+  async created() {
     console.log("created");
     console.log(this.$el);
+    const pokemons = await getAllPokemon();
+    this.pokemons = pokemons.results;
   },
   mounted() {
     console.log("Mounted");
